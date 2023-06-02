@@ -12,23 +12,32 @@ public class BlocoLista {
         this.prox = bl;
     }
 
-    public String getElemento(int i) {
+    public BlocoLista getElemento(int i) {
         BlocoLista aux = this.prox;
         int c = 0;
         while (aux != null) {
             if (c == i) {
-                return aux.elemento;
+                return aux;
             }
             aux = aux.prox;
             c++;
         }
         return null;
     }
+    
+public BlocoLista removeElemento(int i){
+    BlocoLista aux = getElemento(i-1);
+    BlocoLista rem = aux.prox;
+    aux.prox = aux.prox.prox;
+    return rem;
+
+}
 
     public static void main(String[] args) {
         BlocoLista bl = new BlocoLista();
         bl.add("elemento 1");
         bl.add("elemento 2");
+        bl.add("elemento 3");
         System.out.println(bl.getElemento(1));
     }
 
