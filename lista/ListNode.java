@@ -1,3 +1,5 @@
+package lista;
+
 public class ListNode {
 
     private Node refNode;
