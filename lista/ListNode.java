@@ -1,11 +1,11 @@
-package lista;
-
 public class ListNode {
 
     private Node refNode;
     private int length = 0;
 
-
+    public int getLength() {
+        return this.length;
+    }
     public void add(String content) {
 
         Node newNode =  new Node();
@@ -32,6 +32,7 @@ public class ListNode {
             removido = ant.prox;
             ant.prox = ant.prox.prox;
         }
+        this.length--;
 
         return removido;
     }
@@ -72,7 +73,7 @@ public class ListNode {
             this.add(novo.content);
         } else {
             novo.prox = ant.prox;
-            ant = novo;
+            ant.prox = novo;
             this.length++;
         }
     }
@@ -106,12 +107,12 @@ public class ListNode {
     public Node getNode(int i) {
         int c = -1;
         Node aux = this.refNode;
-        while(aux!=null) {
-            aux = aux.prox;
+        while(aux!=null) {            
             c++;
             if(c == i) {
                 break;
             }
+            aux = aux.prox;
         }
 
         return aux;
